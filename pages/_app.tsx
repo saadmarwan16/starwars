@@ -6,7 +6,7 @@ import theme from "../theme";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Box bg="blacks.base" h="100vh">
+      <Box bg="blacks.base" minH="100vh">
         <Component {...pageProps} />
       </Box>
     </ChakraProvider>

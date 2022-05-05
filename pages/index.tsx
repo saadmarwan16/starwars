@@ -1,37 +1,47 @@
-import {
-  Heading,
-  HStack,
-  VStack,
-  Text,
-} from "@chakra-ui/react";
-import type { NextPage } from "next";
+import { HStack, VStack } from "@chakra-ui/react";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-// import Image from "next/image";
+import Characters from "../components/Characters";
+import Navbar from "../components/Navbar";
+import { ICharacter } from "../interfaces";
 
-const Home: NextPage = () => {
+interface HomeProps {
+  characters: ICharacter[];
+}
+
+const Home: NextPage<HomeProps> = ({ characters }) => {
   return (
     <>
       <Head>
         <title>Home | Star Wars</title>
       </Head>
-      <HStack justifyContent="space-between" alignItems="center" p={8}>
-        <Link href="/">
-          <a>
-            <VStack justifyContent="center">
-              <Heading variant="logo">STAR</Heading>
-              <Heading variant="logo">WARS</Heading>
-            </VStack>
-          </a>
-        </Link>
-        <Link href="#characters">
-          <a>
-            <Text variant="hover-red">CHARACTERS</Text>
-          </a>
-        </Link>
-      </HStack>
+      <VStack minH="100vh">
+        <Navbar />
+        <HStack flexGrow={1} bg="reds.base" width="100%"></HStack>
+      </VStack>
+      <Characters characters={characters} />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (_) => {
+  try {
+    const response = await fetch(
+      "https://akabab.github.io/starwars-api/api/all.json"
+    );
+
+    const characters = (await response.json()) as ICharacter[];
+
+    return {
+      props: {
+        characters,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default Home;

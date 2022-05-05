@@ -1,4 +1,4 @@
-import { extendTheme, theme as defaultTheme } from "@chakra-ui/react";
+import { extendTheme} from "@chakra-ui/react";
 
 const colors = {
   blacks: {
@@ -11,13 +11,9 @@ const colors = {
   },
   whites: {
     base: "#FFFFFF",
-    accent: "#C2C2C2",
+    accent: "#A3A3A3",
   },
 };
-
-//   const fonts = {
-//     heading: `Kalam Permanent-Maker ${defaultTheme.fonts.heading}`,
-//   };
 
 const components = {
   Heading: {
@@ -26,8 +22,7 @@ const components = {
     },
     variants: {
       logo: {
-        lineHeight: "0.85",
-        //   fonts: "Kalam",
+        lineHeight: "0.75",
       },
     },
   },
