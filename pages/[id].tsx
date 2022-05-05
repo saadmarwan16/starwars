@@ -105,7 +105,7 @@ const CharacterDetails: NextPage<CharacterDetailsProps> = ({ character }) => {
                   <Text fontSize="lg" fontWeight="bold">
                     WIKI:
                   </Text>
-                  <a href={character.wiki} target="_blank">
+                  <a href={character.wiki} target="_blank" rel="noreferrer">
                     <Text fontSize="lg" variant="hover-red" cursor="pointer">
                       About Character
                     </Text>
