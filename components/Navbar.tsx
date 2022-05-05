@@ -1,20 +1,17 @@
-import { Heading, HStack, VStack, Text } from "@chakra-ui/react";
+import { Heading, HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { FunctionComponent } from "react";
 
-interface NavbarProps {}
-
-const Navbar: FunctionComponent<NavbarProps> = () => {
-  const router = useRouter();
-
+const Navbar: FunctionComponent = () => {
   return (
     <HStack
       w="100%"
       justifyContent="space-between"
       alignItems="center"
+      backgroundImage="url(https://static-mh.content.disney.io/starwars/assets/navigation/navigation_stars-c6452e016c73.jpg)"
       px={{ base: 4, sm: 8 }}
       pt={4}
+      pb={2}
     >
       <Link href="/">
         <a>
@@ -24,18 +21,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
           </VStack>
         </a>
       </Link>
-      {router.pathname === "/" && (
-        <Link href="#characters">
-          <a>
-            <Text
-              variant="hover-red"
-              fontSize={{ base: "md", sm: "lg", md: "xl" }}
-            >
-              CHARACTERS
-            </Text>
-          </a>
-        </Link>
-      )}
     </HStack>
   );
 };

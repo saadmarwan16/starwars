@@ -29,7 +29,7 @@ const Characters: FunctionComponent<CharactersProps> = ({ characters }) => {
   };
 
   return (
-    <Box as="section" id="characters" p={{ base: 4, sm: 8 }}>
+    <Box as="section" id="characters" p={{ base: 4, sm: 8 }} width='100%'>
       <Heading mb={{ base: 6, sm: 12 }} size={headingSize}>
         CHARACTERS
       </Heading>
@@ -58,7 +58,7 @@ const Characters: FunctionComponent<CharactersProps> = ({ characters }) => {
         )}
         {!isThereMore && (
           <Text fontSize="2xl" color="whites.accent">
-            No More
+            The End
           </Text>
         )}
       </HStack>

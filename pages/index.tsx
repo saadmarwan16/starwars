@@ -17,9 +17,8 @@ const Home: NextPage<HomeProps> = ({ characters }) => {
       </Head>
       <VStack minH="100vh">
         <Navbar />
-        <HStack flexGrow={1} bg="reds.base" width="100%"></HStack>
+        <Characters characters={characters} />
       </VStack>
-      <Characters characters={characters} />
     </>
   );
 };
